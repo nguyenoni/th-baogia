@@ -1,14 +1,33 @@
 from django.db import models
 from django.db.models.fields.files import ImageField
 from .libs import generate_uid, get_upload_to_folder
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255, default="", verbose_name="Tên danh mục")
-    slug = models.SlugField(default="", max_length=500,verbose_name="URL")
+    slug = models.SlugField(unique=True, blank=True, max_length=500,verbose_name="URL")
     create_at = models.DateField(auto_created=True, verbose_name="Ngày tạo")
     update_at = models.DateField(auto_now=True, verbose_name="Ngày cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+
+    @staticmethod
+    def custom_slugs(slug):
+        if slug is not None:
+            obj_slug = Category.objects.filter(slug=slug).first()
+            if obj_slug:
+                return slug + '-' + str(obj_slug.id)
+        return slug
+
+    def save(self, *arg, **kwarg):
+        self.slug = self.custom_slugs(slugify(self.name))
+        super(Category, self).save(*arg, **kwarg)
+
+    class Meta:
+        verbose_name = "Danh mục sản phẩm"
+        verbose_name_plural = "Danh mục sản phẩm"
+        ordering = ['name']
+
 
     def __str__(self):
         return self.name
@@ -16,6 +35,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255, default="", verbose_name="Tên sản phẩm")
     unique_product = models.CharField(max_length=20, default="", verbose_name="UID sản phẩm")
+    cover_image = models.ImageField(upload_to=get_upload_to_folder("products"), max_length=512, blank=True, verbose_name="Image")
     slug = models.SlugField(max_length=500, default="",verbose_name="URL")
     price = models.FloatField(default=0, verbose_name="Giá")
     category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name="category")
@@ -23,6 +43,11 @@ class Product(models.Model):
     create_at = models.DateTimeField(auto_created=True, verbose_name="Ngày tạo")
     update_at = models.DateTimeField(auto_now=True, verbose_name="Ngày cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+
+    class Meta:
+        verbose_name = "Sản Phẩm"
+        verbose_name_plural = "Sản Phẩm"
+        ordering = ['name']
 
     def save(self, *arg, **kwarg):
         self.unique_product = generate_uid("Product")
@@ -51,6 +76,12 @@ class Volume(models.Model):
     def save(self, *arg, **kwarg):
         self.unique_volume = generate_uid("Volume")
         super(Volume, self).save(*arg, **kwarg)
+    
+    class Meta:
+        verbose_name = "Dung tích sản phẩm"
+        verbose_name_plural = "Dung tích sản phẩm"
+        ordering = ['name']
+
     def to_dict(self):
         return {
             "name": self.name,
@@ -80,6 +111,11 @@ class Material(models.Model):
             "create_at": self.create_at,
             "update_at": self.update_at
         }
+    class Meta:
+        verbose_name = "Nguyên liệu"
+        verbose_name_plural = "Nguyên liệu"
+        ordering = ['name']    
+
     def __str__(self):
         return self.name
 
@@ -101,6 +137,11 @@ class PackagingLevel1(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, verbose_name="Ngày tạo")
     update_at = models.DateTimeField(auto_now=True, verbose_name="Ngày cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+
+    class Meta:
+        verbose_name = "Bao bì cấp 1"
+        verbose_name_plural = "Bao bì cấp 1"
+        ordering = ['name']
 
     def to_dict(self):
         return {
@@ -135,6 +176,11 @@ class PackagingLevel2(models.Model):
     create_at = models.DateField(auto_now_add=True, verbose_name="Ngày tạo")
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
 
+    class Meta:
+        verbose_name = "Bao bì cấp 2"
+        verbose_name_plural = "Bao bì cấp 2"
+        ordering = ['name']
+
     def to_dict(self):
         return {
             "name": self.name,
@@ -159,6 +205,11 @@ class Stamp(models.Model):
     create_at = models.DateField(auto_now_add=True, verbose_name="Ngày tạo")
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+
+    class Meta:
+        verbose_name = "Tem nhãn"
+        verbose_name_plural = "Tem nhãn"
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -185,6 +236,11 @@ class PackingWorker(models.Model):
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
 
+    class Meta:
+        verbose_name = "Nhân công đóng gói"
+        verbose_name_plural = "Nhân công đóng gói"
+        ordering = ['name']
+
     def __str__(self):
         return self.name
     
@@ -209,6 +265,11 @@ class Announced(models.Model):
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
 
+    class Meta:
+        verbose_name = "Công bố kiểm nghiệm"
+        verbose_name_plural = "Công bố kiểm nghiệm"
+        ordering = ['name']
+
     def __str__(self):
         return self.name
     
@@ -231,6 +292,11 @@ class FeeShipping(models.Model):
     create_at = models.DateField(auto_now_add=True, verbose_name="Ngày tạo")
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+
+    class Meta:
+        verbose_name = "Vận chuyển"
+        verbose_name_plural = "Vận chuyển"
+        ordering = ['name']
 
     def __str__(self):
         return self.name
