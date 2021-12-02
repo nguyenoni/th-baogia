@@ -34,9 +34,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=255, default="", verbose_name="Tên sản phẩm")
-    unique_product = models.CharField(max_length=20, default="", verbose_name="UID sản phẩm")
+    unique_product = models.CharField(max_length=20, unique=True, blank=True, verbose_name="UID sản phẩm")
     cover_image = models.ImageField(upload_to=get_upload_to_folder("products"), max_length=512, blank=True, verbose_name="Image")
-    slug = models.SlugField(max_length=500, default="",verbose_name="URL")
+    slug = models.SlugField(max_length=500, unique=True, blank=True,verbose_name="URL")
     price = models.FloatField(default=0, verbose_name="Giá")
     category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name="category")
     quantity = models.IntegerField(default=0, verbose_name="Số lượng")
@@ -44,14 +44,23 @@ class Product(models.Model):
     update_at = models.DateTimeField(auto_now=True, verbose_name="Ngày cập nhật")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
 
+    @staticmethod
+    def custom_slugs(slug):
+        if slug is not None:
+            obj_slug = Category.objects.filter(slug=slug).first()
+            if obj_slug:
+                return slug + '-' + str(obj_slug.id)
+        return slug
+
+    def save(self, *arg, **kwarg):
+        self.unique_product = generate_uid("Product")
+        self.slug = self.custom_slugs(slugify(self.name))
+        super(Product, self).save(*arg, **kwarg)
+
     class Meta:
         verbose_name = "Sản Phẩm"
         verbose_name_plural = "Sản Phẩm"
         ordering = ['name']
-
-    def save(self, *arg, **kwarg):
-        self.unique_product = generate_uid("Product")
-        super(Product, self).save(*arg, **kwarg)
 
     def __str__(self):
         return self.name
@@ -67,7 +76,7 @@ class Product(models.Model):
 # Dung tích
 class Volume(models.Model):
     name = models.CharField(max_length=50, default= "", verbose_name="Tên dung tích")
-    unique_volume = models.CharField(max_length=20, default="", verbose_name="UID Dung tích")
+    unique_volume = models.CharField(max_length=20, unique=True, blank=True, verbose_name="UID Dung tích")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
     product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="volume_product")
     create_at = models.DateField(auto_now_add=True, verbose_name="Ngày tạo")

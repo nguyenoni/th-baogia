@@ -10,3 +10,10 @@ def generate_uid(tp):
 
 def get_upload_to_folder(type):
     return 'media/upload/{0}/{1}/{2}'.format(type,date.today().year, date.today().month)
+
+def serializable(objs):
+    arr_result = []
+    for obj in objs:
+        arr_result.append(obj.to_dict())
+
+    return arr_result

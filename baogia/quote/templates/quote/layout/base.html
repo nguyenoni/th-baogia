@@ -38,7 +38,11 @@
         <script src="{% static '/quote/plugins/3d-bold-navigation/js/modernizr.js' %}"></script>
         <script src="{% static '/quote/plugins/offcanvasmenueffects/js/snap.svg-min.js' %}"></script>
         
-        
+        {% block css %}
+     
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+        {% endblock %}
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -60,7 +64,7 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="index.html" class="logo-text"><span>TOPMGG</span></a>
+                        <a href="index.html" class="logo-text"><span>BAOGIA</span></a>
                     </div>
                     <div class="topmenu-outer">
                         <div class="top-menu">
@@ -243,6 +247,7 @@
         <script src="{% static '/quote/plugins/morris/raphael.min.js' %}"></script>
         <script src="{% static '/quote/plugins/morris/morris.min.js' %}"></script>
         <script src="{% static '/quote/js/meteor.min.js' %}"></script>
+        <script src="{% static '/quote/js/libs.js' %}"></script>
         {% block script %}
         <!-- Dung cho trang index -->
         <!-- <script src="{% static '/quote/plugins/chartjs/Chart.bundle.min.js' %}"></script>
