@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 11:42 AM
+-- Generation Time: Dec 03, 2021 at 11:41 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -225,7 +225,35 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (23, '2021-12-02 04:00:28.425030', '6', '100ml', 1, '[{\"added\": {}}]', 9, 1),
 (24, '2021-12-02 04:00:36.708732', '7', '30ml', 1, '[{\"added\": {}}]', 9, 1),
 (25, '2021-12-02 04:00:42.726080', '8', '50ml', 1, '[{\"added\": {}}]', 9, 1),
-(26, '2021-12-02 04:00:53.240930', '9', '100ml', 1, '[{\"added\": {}}]', 9, 1);
+(26, '2021-12-02 04:00:53.240930', '9', '100ml', 1, '[{\"added\": {}}]', 9, 1),
+(27, '2021-12-03 02:46:08.189427', '1', 'Loại A', 1, '[{\"added\": {}}]', 10, 1),
+(28, '2021-12-03 02:46:24.570288', '2', 'Loại B', 1, '[{\"added\": {}}]', 10, 1),
+(29, '2021-12-03 02:50:14.777278', '1', 'Serum trị mụn 30ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(30, '2021-12-03 02:50:28.446353', '2', 'Serum trị mụn 50ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(31, '2021-12-03 02:50:40.925239', '3', 'Serum trị mụn 100ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(32, '2021-12-03 02:50:52.523731', '4', 'Cream chống nắng 30ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(33, '2021-12-03 02:51:05.070009', '5', 'Cream chống nắng 50ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(34, '2021-12-03 02:51:17.212280', '6', 'Cream chống nắng 100ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(35, '2021-12-03 02:51:28.850465', '7', 'Cream trị thâm mụn 30ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(36, '2021-12-03 02:51:39.219501', '8', 'Cream trị thâm mụn 50ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(37, '2021-12-03 02:51:50.183068', '9', 'Cream trị thâm mụn 100ml', 2, '[{\"changed\": {\"fields\": [\"T\\u00ean dung t\\u00edch\"]}}]', 9, 1),
+(38, '2021-12-03 02:52:16.449771', '1', 'Loại A', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 10, 1),
+(39, '2021-12-03 02:52:26.964068', '2', 'Loại B', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 10, 1),
+(40, '2021-12-03 02:52:51.851642', '3', 'Loại A', 1, '[{\"added\": {}}]', 10, 1),
+(41, '2021-12-03 02:53:02.364847', '3', 'Loại A', 2, '[{\"changed\": {\"fields\": [\"Gi\\u00e1 nguy\\u00ean li\\u1ec7u\"]}}]', 10, 1),
+(42, '2021-12-03 02:53:17.724312', '4', 'Loại B', 1, '[{\"added\": {}}]', 10, 1),
+(43, '2021-12-03 03:05:55.005797', '1', 'Loại A', 2, '[{\"changed\": {\"fields\": [\"Ghi ch\\u00fa\"]}}]', 10, 1),
+(44, '2021-12-03 03:06:02.966554', '2', 'Loại B', 2, '[{\"changed\": {\"fields\": [\"Ghi ch\\u00fa\"]}}]', 10, 1),
+(45, '2021-12-03 03:06:09.925058', '3', 'Loại A', 2, '[{\"changed\": {\"fields\": [\"Ghi ch\\u00fa\"]}}]', 10, 1),
+(46, '2021-12-03 03:06:27.285753', '4', 'Loại B', 2, '[{\"changed\": {\"fields\": [\"Ghi ch\\u00fa\"]}}]', 10, 1),
+(47, '2021-12-03 08:04:36.363766', '1', 'Bao bì cream trị thâm mụn', 1, '[{\"added\": {}}]', 13, 1),
+(48, '2021-12-03 08:06:53.855406', '2', 'Bao bì cream trị thâm mụn 01', 1, '[{\"added\": {}}]', 13, 1),
+(49, '2021-12-03 09:20:50.511406', '1', 'Bao bì c2 Cream trị thâm mụn 01', 1, '[{\"added\": {}}]', 14, 1),
+(50, '2021-12-03 09:21:29.463255', '2', 'Bao bì c2 Cream trị thâm mụn 02', 1, '[{\"added\": {}}]', 14, 1),
+(51, '2021-12-03 09:23:05.820476', '1', 'Bao bì c2 Cream trị thâm mụn 01', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 14, 1),
+(52, '2021-12-03 10:08:50.026030', '1', 'Gói tem nhãn Cream  trị thâm mụn 01', 1, '[{\"added\": {}}]', 16, 1),
+(53, '2021-12-03 10:09:31.350981', '2', 'Gói tem nhãn Cream  trị thâm mụn 02', 1, '[{\"added\": {}}]', 16, 1),
+(54, '2021-12-03 10:10:08.640493', '1', 'Gói tem nhãn Cream  trị thâm mụn 01', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -303,7 +331,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (22, 'quote', '0004_auto_20211201_2130', '2021-12-02 01:48:46.353279'),
 (23, 'quote', '0005_alter_category_slug', '2021-12-02 01:48:46.420947'),
 (24, 'quote', '0006_auto_20211202_0956', '2021-12-02 02:56:44.100642'),
-(25, 'quote', '0007_alter_product_slug', '2021-12-02 03:00:26.195676');
+(25, 'quote', '0007_alter_product_slug', '2021-12-02 03:00:26.195676'),
+(26, 'quote', '0008_material_note', '2021-12-03 03:01:58.149542');
 
 -- --------------------------------------------------------
 
@@ -406,8 +435,19 @@ CREATE TABLE `quote_material` (
   `create_at` date NOT NULL,
   `update_at` date NOT NULL,
   `product_id` bigint(20) NOT NULL,
-  `volume_id` bigint(20) NOT NULL
+  `volume_id` bigint(20) NOT NULL,
+  `note` longtext COLLATE utf8_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `quote_material`
+--
+
+INSERT INTO `quote_material` (`id`, `name`, `price`, `status`, `create_at`, `update_at`, `product_id`, `volume_id`, `note`) VALUES
+(1, 'Loại A', 15000, 1, '2021-12-03', '2021-12-03', 3, 7, 'Không có gì'),
+(2, 'Loại B', 1200, 1, '2021-12-03', '2021-12-03', 3, 7, 'Không có gì'),
+(3, 'Loại A', 5000, 1, '2021-12-03', '2021-12-03', 3, 8, 'Không có gì'),
+(4, 'Loại B', 4500, 1, '2021-12-03', '2021-12-03', 3, 8, 'Không có gì');
 
 -- --------------------------------------------------------
 
@@ -435,6 +475,14 @@ CREATE TABLE `quote_packaginglevel1` (
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
+--
+-- Dumping data for table `quote_packaginglevel1`
+--
+
+INSERT INTO `quote_packaginglevel1` (`id`, `name`, `type_packaging`, `image`, `type_material`, `quantity_provider_sell`, `min_order`, `provider`, `price`, `quantity_can_order_with_price`, `time_to_send`, `note`, `create_at`, `update_at`, `status`, `product_id`, `volume_id`) VALUES
+(1, 'Bao bì cream trị thâm mụn', 'Hộp', 'media/upload/images/2021/12/in-vo-hop-giay-gia-re.jpg', 'PET', 10000, 1000, 'Thái Hương', 10000, 1000, 'Hàng sẵn kho giao hàng trong khoảng thời gian 2-3 ngày\r\nHàng đợi sản xuất time tầm 5-7 ngày tùy thuộc vào số lượng', 'Không có ghi chú gì', '2021-12-03 08:04:36.360884', '2021-12-03 08:04:36.360884', 1, 3, 7),
+(2, 'Bao bì cream trị thâm mụn 01', 'Hộp', 'media/upload/images/2021/12/mau-bao-bi-giay-1.jpg', 'HDPE', 10000, 1000, 'Công ty VISS', 10000, 1000, 'Tùy từng thời điểm, do dịch Covid nên thời gian không thể chắc chắn', 'Ở đây chúng tôi không ghi chú', '2021-12-03 08:06:53.854378', '2021-12-03 08:06:53.854378', 1, 3, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -453,6 +501,14 @@ CREATE TABLE `quote_packaginglevel2` (
   `product_id` bigint(20) NOT NULL,
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `quote_packaginglevel2`
+--
+
+INSERT INTO `quote_packaginglevel2` (`id`, `name`, `price`, `type_packaging`, `note`, `status`, `create_at`, `update_at`, `product_id`, `volume_id`) VALUES
+(1, 'Bao bì c2 Cream trị thâm mụn 01', 5000, 'Hộp', 'Đây là ghi chú chúng tôi tạo ra để làm ví dụ', 1, '2021-12-03', '2021-12-03', 3, 7),
+(2, 'Bao bì c2 Cream trị thâm mụn 02', 7000, 'Hộp', 'Cái này chỉ là ghi chú tạm thời có thể sửa được', 1, '2021-12-03', '2021-12-03', 3, 7);
 
 -- --------------------------------------------------------
 
@@ -520,6 +576,14 @@ CREATE TABLE `quote_stamp` (
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
+--
+-- Dumping data for table `quote_stamp`
+--
+
+INSERT INTO `quote_stamp` (`id`, `name`, `type_stamp`, `price`, `note`, `create_at`, `update_at`, `status`, `product_id`, `volume_id`) VALUES
+(1, 'Gói tem nhãn Cream  trị thâm mụn 01', 'Hộp', 1500, 'Cái này là dữ liệu demo cho ghi chú', '2021-12-03', '2021-12-03', 1, 3, 7),
+(2, 'Gói tem nhãn Cream  trị thâm mụn 02', 'Hộp', 2000, 'Cái này lại là text ví dụ chèn vào ghi chú', '2021-12-03', '2021-12-03', 1, 3, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -541,15 +605,15 @@ CREATE TABLE `quote_volume` (
 --
 
 INSERT INTO `quote_volume` (`id`, `name`, `unique_volume`, `status`, `create_at`, `update_at`, `product_id`) VALUES
-(1, '30ml', 'V08E039P', 1, '2021-12-02', '2021-12-02', 1),
-(2, '50ml', 'VBD3B5FP', 1, '2021-12-02', '2021-12-02', 1),
-(3, '100ml', 'V0EF675P', 1, '2021-12-02', '2021-12-02', 1),
-(4, '30ml', 'V3C5645P', 1, '2021-12-02', '2021-12-02', 2),
-(5, '50ml', 'V8146F7P', 1, '2021-12-02', '2021-12-02', 2),
-(6, '100ml', 'VCB641EP', 1, '2021-12-02', '2021-12-02', 2),
-(7, '30ml', 'VD72D40P', 1, '2021-12-02', '2021-12-02', 3),
-(8, '50ml', 'V4EA0EBP', 1, '2021-12-02', '2021-12-02', 3),
-(9, '100ml', 'V961371P', 1, '2021-12-02', '2021-12-02', 3);
+(1, 'Serum trị mụn 30ml', 'VEFF7F7P', 1, '2021-12-02', '2021-12-03', 1),
+(2, 'Serum trị mụn 50ml', 'VFA7851P', 1, '2021-12-02', '2021-12-03', 1),
+(3, 'Serum trị mụn 100ml', 'V923031P', 1, '2021-12-02', '2021-12-03', 1),
+(4, 'Cream chống nắng 30ml', 'V2D176CP', 1, '2021-12-02', '2021-12-03', 2),
+(5, 'Cream chống nắng 50ml', 'V362CCEP', 1, '2021-12-02', '2021-12-03', 2),
+(6, 'Cream chống nắng 100ml', 'VEB2368P', 1, '2021-12-02', '2021-12-03', 2),
+(7, 'Cream trị thâm mụn 30ml', 'VA4C0C2P', 1, '2021-12-02', '2021-12-03', 3),
+(8, 'Cream trị thâm mụn 50ml', 'V588D20P', 1, '2021-12-02', '2021-12-03', 3),
+(9, 'Cream trị thâm mụn 100ml', 'VD59E87P', 1, '2021-12-02', '2021-12-03', 3);
 
 --
 -- Indexes for dumped tables
@@ -752,7 +816,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -764,7 +828,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `quote_announced`
@@ -788,19 +852,19 @@ ALTER TABLE `quote_feeshipping`
 -- AUTO_INCREMENT for table `quote_material`
 --
 ALTER TABLE `quote_material`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `quote_packaginglevel1`
 --
 ALTER TABLE `quote_packaginglevel1`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_packaginglevel2`
 --
 ALTER TABLE `quote_packaginglevel2`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_packingworker`
@@ -818,7 +882,7 @@ ALTER TABLE `quote_product`
 -- AUTO_INCREMENT for table `quote_stamp`
 --
 ALTER TABLE `quote_stamp`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_volume`

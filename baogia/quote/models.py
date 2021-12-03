@@ -109,13 +109,16 @@ class Material(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="material_product", verbose_name="Sản phẩm") #nguyên liệu của sản phẩm nào
     volume = models.ForeignKey(Volume, on_delete=models.CASCADE,related_name="material_volume", verbose_name="Dung tích")
     status = models.BooleanField(default=True, verbose_name="Trạng thái")
+    note = models.TextField(null=True, blank=True, verbose_name="Ghi chú", default="")
     create_at = models.DateField(auto_now_add=True, verbose_name="Ngày tạo")
     update_at = models.DateField(auto_now=True, verbose_name="Cập nhật")
 
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "price": self.price,
+            "note": self.note,
             "status": self.status,
             "create_at": self.create_at,
             "update_at": self.update_at
@@ -154,9 +157,10 @@ class PackagingLevel1(models.Model):
 
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "type_packaging": self.type_packaging,
-            "image": self.image,
+            # "image": self.image,
             "type_material": self.type_material,
             "quantity_provider_sell": self.quantity_provider_sell,
             "min_order": self.min_order,
@@ -192,6 +196,7 @@ class PackagingLevel2(models.Model):
 
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "price": self.price,
             "note": self.note,
@@ -225,6 +230,7 @@ class Stamp(models.Model):
 
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "type_stamp": self.type_stamp,
             "price": self.price,
@@ -255,6 +261,7 @@ class PackingWorker(models.Model):
     
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "price": self.price,
             "note": self.note,
@@ -284,6 +291,7 @@ class Announced(models.Model):
     
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "price": self.price,
             "note": self.note,
@@ -312,6 +320,7 @@ class FeeShipping(models.Model):
     
     def to_dict(self):
         return {
+            "key": self.id,
             "name": self.name,
             "price": self.price,
             "note": self.note,

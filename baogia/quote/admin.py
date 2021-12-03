@@ -34,13 +34,31 @@ class PackagingAdmin(admin.ModelAdmin):
     ordering = ('id',)
 
 @admin.register(PackagingLevel2)
-class Box_ProductAdmin(admin.ModelAdmin):
+class PackagingLevel2tAdmin(admin.ModelAdmin):
     list_display = ["name", "price", "product", "volume", "create_at", "update_at", "status",]
     search_fields = ('name', 'product', 'volume',)
     ordering = ('id',)
 
 @admin.register(Stamp)
-class Carton_BoxAdmin(admin.ModelAdmin):
+class StampAdmin(admin.ModelAdmin):
     list_display = ["name", "price", "product", "volume", "create_at", "update_at", "status",]
+    search_field = ('name', 'product', 'volume',)
+    ordering = ('id',)
+
+@admin.register(PackingWorker)
+class PackingWorkerAdmin(admin.ModelAdmin):
+    list_display = ["name", "price", "product", "volume", "note", "create_at", "update_at", "status",]
+    search_field = ('name', 'product', 'volume',)
+    ordering = ('id',)
+
+@admin.register(Announced)
+class AnnouncedAdmin(admin.ModelAdmin):
+    list_display = ["name", "price", "product", "volume", "note", "create_at", "update_at", "status",]
+    search_field = ('name', 'product', 'volume',)
+    ordering = ('id',)
+
+@admin.register(FeeShipping)
+class FeeShippingAdmin(admin.ModelAdmin):
+    list_display = ["name", "price", "product", "volume", "note", "create_at", "update_at", "status",]
     search_field = ('name', 'product', 'volume',)
     ordering = ('id',)
