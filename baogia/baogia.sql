@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 11:41 AM
+-- Generation Time: Dec 04, 2021 at 11:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -253,7 +253,14 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (51, '2021-12-03 09:23:05.820476', '1', 'Bao bì c2 Cream trị thâm mụn 01', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 14, 1),
 (52, '2021-12-03 10:08:50.026030', '1', 'Gói tem nhãn Cream  trị thâm mụn 01', 1, '[{\"added\": {}}]', 16, 1),
 (53, '2021-12-03 10:09:31.350981', '2', 'Gói tem nhãn Cream  trị thâm mụn 02', 1, '[{\"added\": {}}]', 16, 1),
-(54, '2021-12-03 10:10:08.640493', '1', 'Gói tem nhãn Cream  trị thâm mụn 01', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 16, 1);
+(54, '2021-12-03 10:10:08.640493', '1', 'Gói tem nhãn Cream  trị thâm mụn 01', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 16, 1),
+(55, '2021-12-04 07:17:18.156961', '1', 'Gói nhân công đóng gói 01', 1, '[{\"added\": {}}]', 15, 1),
+(56, '2021-12-04 07:17:45.675670', '2', 'Gói nhân công đóng gói 02', 1, '[{\"added\": {}}]', 15, 1),
+(57, '2021-12-04 07:24:33.582558', '1', 'Gói công bố 01', 1, '[{\"added\": {}}]', 11, 1),
+(58, '2021-12-04 07:24:53.901296', '2', 'Gói công bố 02', 1, '[{\"added\": {}}]', 11, 1),
+(59, '2021-12-04 07:28:38.091028', '2', 'Gói công bố 02', 2, '[{\"changed\": {\"fields\": [\"Dung t\\u00edch\"]}}]', 11, 1),
+(60, '2021-12-04 07:39:59.014354', '1', 'Gói vận chuyển nội thành', 1, '[{\"added\": {}}]', 12, 1),
+(61, '2021-12-04 07:40:20.814433', '2', 'Gói vận chuyển ngoại thành', 1, '[{\"added\": {}}]', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -371,6 +378,14 @@ CREATE TABLE `quote_announced` (
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
+--
+-- Dumping data for table `quote_announced`
+--
+
+INSERT INTO `quote_announced` (`id`, `name`, `price`, `note`, `create_at`, `update_at`, `status`, `product_id`, `volume_id`) VALUES
+(1, 'Gói công bố 01', 200000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7),
+(2, 'Gói công bố 02', 1000000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -420,6 +435,14 @@ CREATE TABLE `quote_feeshipping` (
   `product_id` bigint(20) NOT NULL,
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `quote_feeshipping`
+--
+
+INSERT INTO `quote_feeshipping` (`id`, `name`, `price`, `note`, `create_at`, `update_at`, `status`, `product_id`, `volume_id`) VALUES
+(1, 'Gói vận chuyển nội thành', 150000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7),
+(2, 'Gói vận chuyển ngoại thành', 500000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -527,6 +550,14 @@ CREATE TABLE `quote_packingworker` (
   `product_id` bigint(20) NOT NULL,
   `volume_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `quote_packingworker`
+--
+
+INSERT INTO `quote_packingworker` (`id`, `name`, `price`, `note`, `create_at`, `update_at`, `status`, `product_id`, `volume_id`) VALUES
+(1, 'Gói nhân công đóng gói 01', 500000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7),
+(2, 'Gói nhân công đóng gói 02', 60000, 'Ghi chú tạm thời', '2021-12-04', '2021-12-04', 1, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -816,7 +847,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -834,7 +865,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT for table `quote_announced`
 --
 ALTER TABLE `quote_announced`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_category`
@@ -846,7 +877,7 @@ ALTER TABLE `quote_category`
 -- AUTO_INCREMENT for table `quote_feeshipping`
 --
 ALTER TABLE `quote_feeshipping`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_material`
@@ -870,7 +901,7 @@ ALTER TABLE `quote_packaginglevel2`
 -- AUTO_INCREMENT for table `quote_packingworker`
 --
 ALTER TABLE `quote_packingworker`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `quote_product`
