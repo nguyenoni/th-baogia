@@ -2,7 +2,7 @@ from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, request
 from django.views import View
-from .models import Category, Material, PackagingLevel1, PackingWorker, Product, Stamp, Volume, PackagingLevel2
+from .models import Announced, Category, FeeShipping, Material, PackagingLevel1, PackingWorker, Product, Stamp, Volume, PackagingLevel2
 from django.views.generic.detail import DetailView
 from . import libs
 
@@ -184,6 +184,64 @@ def load_packing_worker(request):
                 "message": "Load dữ liệu thành công!",
                 "data": libs.serializable(obj_packing_worker),
                 "title": "Chọn gói nhân công đóng gói"
+            })
+        except ValueError:
+            contex.update({
+                "status": 400,
+                "message": ValueError.__str__()
+            })
+        
+
+    return JsonResponse({"data": contex})
+
+# API load load_announced
+def load_announced(request):
+    contex = {
+        "status": 200,
+        "message": ""
+    }
+
+    if(request.method == "POST" and request.POST.get("valp") and request.POST.get("valv")):
+        valp = request.POST.get("valp","")
+        valv = request.POST.get("valv","")
+
+        try:
+            obj_product = Product.objects.filter(unique_product=valp)[0]
+            obj_volume = Volume.objects.filter(unique_volume = valv)[0]
+            obj_announced = Announced.objects.filter(product = obj_product, volume = obj_volume)
+            contex.update({
+                "message": "Load dữ liệu thành công!",
+                "data": libs.serializable(obj_announced),
+                "title": "Chọn gói công bố"
+            })
+        except ValueError:
+            contex.update({
+                "status": 400,
+                "message": ValueError.__str__()
+            })
+        
+
+    return JsonResponse({"data": contex})
+
+# API load FeeShip
+def load_feeship(request):
+    contex = {
+        "status": 200,
+        "message": ""
+    }
+
+    if(request.method == "POST" and request.POST.get("valp") and request.POST.get("valv")):
+        valp = request.POST.get("valp","")
+        valv = request.POST.get("valv","")
+
+        try:
+            obj_product = Product.objects.filter(unique_product=valp)[0]
+            obj_volume = Volume.objects.filter(unique_volume = valv)[0]
+            obj_feeship = FeeShipping.objects.filter(product = obj_product, volume = obj_volume)
+            contex.update({
+                "message": "Load dữ liệu thành công!",
+                "data": libs.serializable(obj_feeship),
+                "title": "Chọn gói vận chuyển"
             })
         except ValueError:
             contex.update({
